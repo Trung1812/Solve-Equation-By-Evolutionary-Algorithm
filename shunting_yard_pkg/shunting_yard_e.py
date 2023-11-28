@@ -40,20 +40,8 @@ OPERATORS_ASSOCIATIVITY: dict[str, Associativity] = {
     '+u': Associativity.RIGHT,
 }
 
-
-
-# Reference : https://en.wikipedia.org/wiki/Shunting_yard_algorithm
 def shunting_yard(expression: str, case_sensitive: bool = True, variable: Optional[str] = None, convert_scientific_notation: bool = True) -> str:
-    """Convert the given classical math expression into Reverse Polish Notation using the Shunting-yard algorithm (see https://en.wikipedia.org/wiki/Shunting_yard_algorithm for more details). All whitespace are ignored.
-
-
-    >>> shuting_yard("1 + 2")
-    '1 2 +'
-
-    >>> shuting_yard("sin(max(2, 3) / 3 * pi)")
-    '2 3 max 3 / pi * sin'
-
-
+    """Convert the given classical math expression into Reverse Polish Notation using the Shunting-yard algorithm
     Args:
         expression (str): string containing the mathematical expression to convert.
         case_sensitive (bool): indicates whether the expression should care about case (default: True).
@@ -62,8 +50,7 @@ def shunting_yard(expression: str, case_sensitive: bool = True, variable: Option
 
     Raises:
         MismatchedBracketsError: raised if the bracket are unbalanced.
-
-
+        
     Returns:
         str: The RPN expression corresponding to the mathematical expression.
     """
