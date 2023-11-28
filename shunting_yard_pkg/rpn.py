@@ -37,7 +37,7 @@ FUNCTIONS: FunctionDictionary = {
 
 
 def compute_rpn(rpn: str, additional_functions: Optional[FunctionDictionary] = None) -> Number:
-    """Compute the value of an expression in the Reverse Polish Notation format (see https://en.wikipedia.org/wiki/Reverse_Polish_notation for more details).
+    """Compute the value of an expression in the Reverse Polish Notation format
     The included function are the five base operations (+-*/^), sin, cos, tan, sqrt, abs, min, max and e and pi as constants.
     The additional_functions parameters enables more function to be used in the computation. See below for its format.
 
