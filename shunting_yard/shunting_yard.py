@@ -2,9 +2,14 @@ from enum import Enum
 import math
 import re
 from typing import Optional
+import os
+import sys
 
-from tokenize import tokenize
-from constants import BASE_OPERATORS, NUMBER_CHARS, FUNCTION_CHARS, SEPARATORS, SEPARATORS_NO_CLOSING_BRACKET, UNARY_OPERATORS_SYMBOLS
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, path)
+
+from shunting_yard.tokenize import tokenize
+from shunting_yard.constants import BASE_OPERATORS, NUMBER_CHARS, FUNCTION_CHARS, SEPARATORS, SEPARATORS_NO_CLOSING_BRACKET, UNARY_OPERATORS_SYMBOLS
 
 
 class MismatchedBracketsError(Exception):
@@ -109,7 +114,3 @@ def shunting_yard(expression: str, case_sensitive: bool = True, variable: Option
         output.append(token)
 
     return ' '.join(output)
-
-
-
-print(shunting_yard('x+30+sin(x/3)--20'))

@@ -1,8 +1,8 @@
 from typing import Optional
 
-from shunting_yard_pkg.rpn import compute_rpn, FunctionDictionary, Number, WrongExpressionError
-from shunting_yard_pkg.shunting_yard_e import MismatchedBracketsError, shunting_yard
-from shunting_yard_pkg.tokenize import tokenize
+from shunting_yard.rpn import compute_rpn, FunctionDictionary, Number, WrongExpressionError
+from shunting_yard.shunting_yard import MismatchedBracketsError, shunting_yard
+from shunting_yard.tokenize import tokenize
 
 
 def compute(expression: str, case_sensitive: bool = True, additional_functions: Optional[FunctionDictionary] = None) -> Number:

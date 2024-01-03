@@ -1,8 +1,12 @@
 import math
 from operator import add, mul, neg, pos, sub, truediv
 from typing import Any, Callable, Optional, Union
+import os
+import sys
 
-from shunting_yard_pkg.constants import NUMBER_CHARS
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, path)
+from shunting_yard.constants import NUMBER_CHARS
 
 
 class WrongExpressionError(Exception):
