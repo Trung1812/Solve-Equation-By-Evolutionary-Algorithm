@@ -4,17 +4,17 @@ import pylab
 import os
 import sys
 from pathlib import Path
-from solver import Solver
 
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, path)
+from evolution_algorithm.solver import Solver
 
 class Visualize:
 
     @staticmethod
     def plot_result(x_result, y_result):
-        title_font = {'fontname': 'Consolas', 'size': 9, 'color': '#035B96'}
-        tick_font = {'fontname': 'Consolas', 'size': 8, 'color': '#035B96'}
+        title_font = {'fontname': 'serif', 'size': 9, 'color': '#035B96'}
+        tick_font = {'fontname': 'serif', 'size': 8, 'color': '#035B96'}
         
 
         save_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

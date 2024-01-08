@@ -9,6 +9,7 @@ from evolution_algorithm.solver import Solver
 import requests
 from pathlib import Path
 from PIL import Image
+from evolution_algorithm.visualizer import Visualize
 
 output_path = Path(__file__).parent
 assets_path = output_path / Path(r"../assets")
@@ -49,9 +50,10 @@ def main():
             return
         try:
             solver = Solver(equation = a)
-            results = solver.solve()
-            solution = str(results[0][-1])
-            exc_time = results[3]
+            x_result, y_result, fitness, execution_time = solver.solve()
+            solution = str(x_result[-1])
+            
+            exc_time = execution_time
         
         except Exception:
             st.error("Please input a valid equation.")
@@ -67,9 +69,13 @@ def main():
             st.write("###")
             st.write("The graph below shows the best fitness value for each generation.")
             left_column, right_column = st.columns(2)
-            
-            st.image(Image.open(vizs_path / Path("x.png")))
-            st.image(Image.open(vizs_path / Path("y.png")))
+            Visualize.plot_result(x_result, y_result)
+
+            with left_column:
+                st.image(Image.open(vizs_path / Path("x.png")))
+
+            with right_column:
+                st.image(Image.open(vizs_path / Path("y.png")))
 
 
     #--- Helper Section ---
