@@ -99,3 +99,4 @@ def compute_rpn(rpn: str, additional_functions: Optional[FunctionDictionary] = N
         raise WrongExpressionError(f"Expression does not give only one result.")
 
     return stack[0]
+

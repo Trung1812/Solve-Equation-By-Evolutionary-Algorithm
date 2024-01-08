@@ -22,8 +22,3 @@ def compute(expression: str, case_sensitive: bool = True, additional_functions: 
         Number: Result.
     """
     return compute_rpn(shunting_yard(expression, case_sensitive), additional_functions)
-
-# Define the equation you want to solve
-eq = input("Enter the equation you want to solve: ")
-print(shunting_yard(eq, variable='x'))
-print(compute_rpn(shunting_yard(eq).replace('x', '1')))

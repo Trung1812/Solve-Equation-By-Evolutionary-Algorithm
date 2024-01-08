@@ -108,7 +108,7 @@ class Solver:
         if not self.elite:           
             if len(self.next_gen) == 0:
                 for pop in range(int(self.population / 2)):
-                    child_1, child_2 = self.cross_over(self.random_selection(), self.self.random_selection())
+                    child_1, child_2 = self.cross_over(self.random_selection(), self.random_selection())
                     child_1, child_2 = self.mutate(child_1), self.mutate(child_2)
                     self.next_gen.append(child_1)
                     self.next_gen.append(child_2)
@@ -219,19 +219,3 @@ class Solver:
                 x_result[-1] = 0
         
         return x_result, y_result, fitness, str('%.3f' % (execution_time*1000)) + 'ms'
-
-
-def main():
-    input_eqt = "30x+1"
-    solver = Solver(equation=input_eqt, min_range=-10, max_range=10)
-
-    result = solver.solve()
-
-    print("\n==================")
-    print(f"Solution: {result[0][-1]:.6f}")
-    print(f"Execution time: {result[3]}")
-    print("==================\n")
-
-
-if __name__ == '__main__':
-    main()
